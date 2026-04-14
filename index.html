@@ -1,216 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Enterprise | E-commerce Store</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matic Enterprise | Electronics Store</title>
 
-    <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            background-color: #f9f9f9;
-        }
-        
-        header { 
-            padding: 20px; 
-            background: #fff;
-            border-bottom: 1px solid #ddd; 
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            text-align: center;
-        }
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f4f6fb;
+}
 
-        nav a { 
-            margin: 0 15px; 
-            text-decoration: none; 
-            color: #0044cc; 
-            font-weight: 600;
-        }
+/* NAVBAR */
+header {
+    background: linear-gradient(135deg, #5f5df0, #7b6cff);
+    color: white;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+}
 
-        .hero { 
-            padding: 60px 20px; 
-            background: #fff;
-            text-align: center;
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .section-title {
-            font-size: 1.8rem;
-            margin: 40px 0 20px;
-            text-align: center;
-        }
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
 
-        /* GRID UPDATED */
-        .product-grid { 
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px; 
-            padding: 20px; 
-        }
+/* HERO */
+.hero {
+    padding: 60px 20px;
+    background: white;
+    text-align: center;
+}
 
-        .product-card { 
-            background: #fff;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
+.hero h2 {
+    font-size: 2.5rem;
+}
 
-        .product-card img { 
-            width: 100%; 
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px; 
-        }
+/* GRID */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
 
-        .price { 
-            font-weight: bold; 
-            display: block; 
-            margin: 10px 0; 
-        }
+/* CARD */
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
 
-        button { 
-            padding: 10px 20px; 
-            cursor: pointer; 
-            border: none;
-            background: #0044cc;
-            color: #fff;
-            border-radius: 5px; 
-        }
+.product-card:hover {
+    transform: translateY(-8px);
+}
 
-        button:hover {
-            background: #002f8a;
-        }
+.product-card img {
+    width: 100%;
+}
 
-        footer { 
-            padding: 40px; 
-            background: #fff; 
-            text-align: center;
-            margin-top: 30px;
-        }
-    </style>
+.product-card h3 {
+    margin: 10px;
+}
+
+.price {
+    color: #5f5df0;
+    font-weight: bold;
+    margin: 10px;
+}
+
+/* BUTTON */
+.btn {
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.buy {
+    background: #5f5df0;
+    color: white;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+/* FORM */
+.form-box {
+    max-width: 400px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* FOOTER */
+footer {
+    background: #111827;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>MA Shoes & Tech</h1>
     <nav>
-        <a href="#hero">Home</a>
-        <a href="#tech">Electronics</a>
-        <a href="#mens">Men's Wear</a>
-        <a href="#contact">Contact</a>
+        <h2>MA Electronics</h2>
+        <div>
+            <a href="#">Home</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </div>
     </nav>
 </header>
 
-<section class="hero" id="hero">
-    <h2>Matrix Enterprise</h2>
-    <p>Stylish & affordable products for everyone</p>
-    <button onclick="window.location.href='tel:9724629434'">Call Now</button>
+<section class="hero">
+    <h2>Electronics Store</h2>
+    <p>Best Gadgets at Affordable Prices</p>
+    <button class="btn buy" onclick="window.location.href='tel:9909788892'">📞 Call Now</button>
 </section>
 
-<!-- TECH SECTION -->
-<h2 class="section-title" id="tech">Tech Collection</h2>
+<!-- PRODUCTS -->
+<h2 style="text-align:center;" id="products">Electronics Collection</h2>
+
 <div class="product-grid">
 
     <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
         <h3>Wireless Headphones</h3>
-        <span class="price">₹4,999</span>
-        <button>Buy Now</button>
+        <p class="price">₹4,999</p>
+        <button class="btn buy">Buy Now</button>
+        <button class="btn whatsapp" onclick="orderNow('Wireless Headphones')">WhatsApp</button>
     </div>
 
     <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
         <h3>Smart Watch</h3>
-        <span class="price">₹2,499</span>
-        <button>Buy Now</button>
+        <p class="price">₹2,499</p>
+        <button class="btn buy">Buy Now</button>
+        <button class="btn whatsapp" onclick="orderNow('Smart Watch')">WhatsApp</button>
     </div>
 
     <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600">
+        <img src="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae">
+        <h3>Mechanical Keyboard</h3>
+        <p class="price">₹3,799</p>
+        <button class="btn buy">Buy Now</button>
+        <button class="btn whatsapp" onclick="orderNow('Keyboard')">WhatsApp</button>
+    </div>
+
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf">
         <h3>Gaming Mouse</h3>
-        <span class="price">₹1,299</span>
-        <button>Buy Now</button>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=600">
-        <h3>Keyboard</h3>
-        <span class="price">₹3,799</span>
-        <button>Buy Now</button>
+        <p class="price">₹1,299</p>
+        <button class="btn buy">Buy Now</button>
+        <button class="btn whatsapp" onclick="orderNow('Mouse')">WhatsApp</button>
     </div>
 
 </div>
 
-<!-- MEN'S SECTION -->
-<h2 class="section-title" id="mens">Men's Fashion</h2>
-<div class="product-grid">
+<!-- CONTACT -->
+<h2 style="text-align:center;" id="contact">Contact / Order</h2>
 
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=600">
-        <h3>Denim Jacket</h3>
-        <span class="price">₹2,499</span>
-        <button>Buy Now</button>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600">
-        <h3>White T-Shirt</h3>
-        <span class="price">₹899</span>
-        <button>Buy Now</button>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600">
-        <h3>Black Hoodie</h3>
-        <span class="price">₹1,799</span>
-        <button>Buy Now</button>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600">
-        <h3>Formal Shirt</h3>
-        <span class="price">₹1,299</span>
-        <button>Buy Now</button>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600">
-        <h3>Slim Fit Jeans</h3>
-        <span class="price">₹1,799</span>
-        <button>Buy Now</button>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1593032465171-8d19f8c6c0c2?w=600">
-        <h3>Blazer</h3>
-        <span class="price">₹3,999</span>
-        <button>Buy Now</button>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600">
-        <h3>Kurta</h3>
-        <span class="price">₹1,499</span>
-        <button>Buy Now</button>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=600">
-        <h3>Sneakers</h3>
-        <span class="price">₹2,199</span>
-        <button>Buy Now</button>
-    </div>
-
+<div class="form-box">
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="tel" placeholder="Mobile Number" pattern="[0-9]{10}" required>
+    <button class="btn buy">Submit</button>
 </div>
 
-<footer id="contact">
-    <h2>Contact</h2>
+<footer>
     <p>Email: jainjainam2209@gmail.com</p>
     <p>Phone: 9724629434</p>
+    <p>© 2026 Matic Enterprise</p>
 </footer>
+
+<script>
+function orderNow(product){
+    let phone = "9724629434";
+    let message = "I want to buy " + product;
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
+</script>
 
 </body>
 </html>
