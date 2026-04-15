@@ -3,200 +3,210 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matic Enterprise | Electronics Store</title>
+<title>Matic Tech Store</title>
 
 <style>
 body {
-    font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    background: #f4f6fb;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f1f3f6;
 }
 
 /* NAVBAR */
-header {
-    background: linear-gradient(135deg, #5f5df0, #7b6cff);
-    color: white;
-    padding: 15px;
-    position: sticky;
-    top: 0;
-}
-
 nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-nav a {
+    padding: 15px 30px;
+    background: #111;
     color: white;
-    margin: 0 10px;
-    text-decoration: none;
 }
 
-/* HERO */
-.hero {
-    padding: 60px 20px;
-    background: white;
-    text-align: center;
+.cart-btn {
+    cursor: pointer;
+    background: #00bcd4;
+    padding: 8px 15px;
+    border-radius: 20px;
 }
 
-.hero h2 {
-    font-size: 2.5rem;
+/* PRODUCTS */
+.products {
+    padding: 30px;
 }
 
-/* GRID */
-.product-grid {
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 20px;
 }
 
-/* CARD */
-.product-card {
+.card {
     background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: 0.3s;
 }
 
-.product-card:hover {
+.card:hover {
     transform: translateY(-8px);
 }
 
-.product-card img {
+.card img {
     width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.product-card h3 {
-    margin: 10px;
-}
-
-.price {
-    color: #5f5df0;
-    font-weight: bold;
-    margin: 10px;
-}
-
-/* BUTTON */
-.btn {
-    margin: 10px;
-    padding: 10px 20px;
-    border-radius: 8px;
+.card button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: black;
+    color: white;
     border: none;
+    border-radius: 20px;
     cursor: pointer;
 }
 
-.buy {
-    background: #5f5df0;
-    color: white;
-}
-
-.whatsapp {
-    background: #25D366;
-    color: white;
-}
-
-/* FORM */
-.form-box {
-    max-width: 400px;
-    margin: 30px auto;
+/* CART DRAWER */
+.cart {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 350px;
+    height: 100%;
     background: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
     padding: 20px;
-    border-radius: 15px;
+    transition: 0.3s;
 }
 
-/* FOOTER */
-footer {
-    background: #111827;
-    color: white;
-    padding: 30px;
-    text-align: center;
+.cart.active {
+    right: 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.total {
+    font-weight: bold;
+    margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <nav>
-        <h2>MA Electronics</h2>
-        <div>
-            <a href="#">Home</a>
-            <a href="#products">Products</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-</header>
+<nav>
+    <h2> MA TechStore</h2>
+    <div class="cart-btn" onclick="toggleCart()">
+        Cart (<span id="count">0</span>)
+    </div>
+</nav>
 
-<section class="hero">
-    <h2>Electronics Store</h2>
-    <p>Best Gadgets at Affordable Prices</p>
-    <button class="btn buy" onclick="window.location.href='tel:9909788892'">📞 Call Now</button>
+<section class="products">
+    <div class="grid">
+
+        <!-- iPhone -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+            <h3>iPhone 14</h3>
+            <p>₹70000</p>
+            <button onclick="addToCart('iPhone 14',70000)">Add</button>
+        </div>
+
+        <!-- Laptop -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
+            <h3>MacBook Pro</h3>
+            <p>₹120000</p>
+            <button onclick="addToCart('MacBook Pro',120000)">Add</button>
+        </div>
+
+        <!-- Headphones -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1518449032857-31c2c7c7c7e5">
+            <h3>Wireless Headphones</h3>
+            <p>₹3000</p>
+            <button onclick="addToCart('Headphones',3000)">Add</button>
+        </div>
+
+        <!-- Smart Watch -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b">
+            <h3>Smart Watch</h3>
+            <p>₹5000</p>
+            <button onclick="addToCart('Smart Watch',5000)">Add</button>
+        </div>
+
+    </div>
 </section>
 
-<!-- PRODUCTS -->
-<h2 style="text-align:center;" id="products">Electronics Collection</h2>
-
-<div class="product-grid">
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
-        <h3>Wireless Headphones</h3>
-        <p class="price">₹4,999</p>
-        <button class="btn buy">Buy Now</button>
-        <button class="btn whatsapp" onclick="orderNow('Wireless Headphones')">WhatsApp</button>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
-        <h3>Smart Watch</h3>
-        <p class="price">₹2,499</p>
-        <button class="btn buy">Buy Now</button>
-        <button class="btn whatsapp" onclick="orderNow('Smart Watch')">WhatsApp</button>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae">
-        <h3>Mechanical Keyboard</h3>
-        <p class="price">₹3,799</p>
-        <button class="btn buy">Buy Now</button>
-        <button class="btn whatsapp" onclick="orderNow('Keyboard')">WhatsApp</button>
-    </div>
-
-    <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf">
-        <h3> Computer</h3>
-        <p class="price">₹1,299</p>
-        <button class="btn buy">Buy Now</button>
-        <button class="btn whatsapp" onclick="orderNow('Mouse')">WhatsApp</button>
-    </div>
-
+<!-- CART -->
+<div class="cart" id="cart">
+    <h2>Your Cart</h2>
+    <div id="cart-items"></div>
+    <p class="total">Total: ₹<span id="total">0</span></p>
 </div>
-
-<!-- CONTACT -->
-<h2 style="text-align:center;" id="contact">Contact / Order</h2>
-
-<div class="form-box">
-    <input type="text" placeholder="Full Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <input type="tel" placeholder="Mobile Number" pattern="[0-9]{10}" required>
-    <button class="btn buy">Submit</button>
-</div>
-
-<footer>
-    <p>Email: jainjainam2209@gmail.com</p>
-    <p>Phone: 9724629434</p>
-    <p>© 2026 Matic Enterprise</p>
-</footer>
 
 <script>
-function orderNow(product){
-    let phone = "9724629434";
-    let message = "I want to buy " + product;
-    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
 }
+
+function addToCart(name, price) {
+    let item = cart.find(p => p.name === name);
+
+    if(item) {
+        item.qty++;
+    } else {
+        cart.push({name, price, qty:1});
+    }
+
+    saveCart();
+    updateCart();
+}
+
+function updateCart() {
+    let cartItems = document.getElementById("cart-items");
+    let total = 0;
+    let count = 0;
+
+    cartItems.innerHTML = "";
+
+    cart.forEach((item, index) => {
+        total += item.price * item.qty;
+        count += item.qty;
+
+        cartItems.innerHTML += `
+        <div class="cart-item">
+            ${item.name} (${item.qty})
+            <button onclick="removeItem(${index})">❌</button>
+        </div>
+        `;
+    });
+
+    document.getElementById("total").innerText = total;
+    document.getElementById("count").innerText = count;
+}
+
+function removeItem(index) {
+    cart.splice(index,1);
+    saveCart();
+    updateCart();
+}
+
+function toggleCart() {
+    document.getElementById("cart").classList.toggle("active");
+}
+
+updateCart();
 </script>
 
 </body>
